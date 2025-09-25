@@ -8,7 +8,6 @@
 
 
 import serial
-import sys
 
 #
 # Note 1: This python script was designed to run with Python 3.
@@ -48,15 +47,14 @@ while True:
     # ask for a line of data from the serial port, the ".decode()" converts the
     # data from an "array of bytes", to a string
     lineOfData = serialPort.readline().decode()
+
     # check if data was received
     if len(lineOfData) > 0:
         # data was received, convert it into 4 integers
         print(lineOfData)
         lines.append(lineOfData)
         if "DONE" in lineOfData:
-            print ("wrotefile")
+            print("wrotefile")
             with open("./data.txt", "w", encoding="utf-8") as f:
-                f.write('\n'.join(str(i) for i in lines));
-                sys.exit()
-
+                f.write("\n".join(str(i) for i in lines))
         continue
