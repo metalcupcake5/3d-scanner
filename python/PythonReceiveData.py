@@ -8,6 +8,7 @@
 
 
 import serial
+import sys
 
 #
 # Note 1: This python script was designed to run with Python 3.
@@ -72,4 +73,6 @@ while True:
         print ("wrotefile")
         with open("./data.txt", "w", encoding="utf-8") as f:
             f.write('\n'.join(str(i) for i in lines));
+            sys.exit()
+
     continue

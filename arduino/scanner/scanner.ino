@@ -25,23 +25,23 @@ void setup() {
 
 void loop() {
   delay(10000);
-  Serial.println("DONE");
+  Serial.println("starting");
   // put your main code here, to run repeatedly:
-  for (posX = 50; posX <= 130; posX += 5) {
+  for (posX = 60; posX <= 125; posX += 1) {
     servoX.write(posX);
     if (forward == 0) {
-      for(posY = 130; posY >= 50; posY -= 1) {
+      for(posY = 125; posY >= 60; posY -= 1) {
         servoY.write(posY);
+        delay(rotateDelay);
         sensorValue = analogRead(sensorPin);
         Serial.println(sensorValue);
-        delay(rotateDelay);
       }
     } else {
-      for (posY = 50; posY <= 130; posY += 1) {
+      for (posY = 60; posY <= 125; posY += 1) {
         servoY.write(posY);
+        delay(rotateDelay);
         sensorValue = analogRead(sensorPin);
         Serial.println(sensorValue);
-        delay(rotateDelay);
       }
     } 
     forward = forward == 1 ? 0 : 1;
@@ -63,3 +63,4 @@ void loop() {
   }
   */
 }
+
