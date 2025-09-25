@@ -30,9 +30,6 @@ def plot_calibration_equation():
     plt.show()
 
 
-plot_calibration_equation()
-
-
 # Function to plot the equation that the rubric asks for.
 def plot_reverse_calibration():
     equation_2 = Polynomial.fit(cm, v, 1)
@@ -45,6 +42,3 @@ def plot_reverse_calibration():
     ax.set_title("Reversed Calibration Curve")
     ax.legend()
     plt.show()
-
-
-plot_reverse_calibration()
