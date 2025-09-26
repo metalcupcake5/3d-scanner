@@ -2,19 +2,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 from calibration import get_calibration_equation
 
-with open("data2_format.txt") as f:
+with open("data_new_format.txt") as f:
     lines = f.readlines()
 
 # reshape analog output to 2D matrix of distances
 values = [int(x) for x in lines]
-values = np.reshape(values, [17, 81])
+values = np.reshape(values, [66, 66])
 values = get_calibration_equation()(values)
 print(values)
 
 # horizontal angle
-theta = np.divide(range(50, 131, 1), 180) * np.pi
+theta = np.divide(range(60, 125, 1), 180) * np.pi
 # vertical angle
-phi = np.divide(list(reversed(range(50, 135, 5))), 180) * np.pi
+phi = np.divide(list(reversed(range(60, 125, 1))), 180) * np.pi
 
 
 x = []
